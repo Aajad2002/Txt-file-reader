@@ -74,6 +74,12 @@ function analyzeText(filePath) {
                 const frequency = coOccurrences[word];
                 topCoOccurrences.push({ word: word, frequency: frequency });
             }
+            let word=[];
+            for (let i in wordFrequency) {
+                
+                const frequency = wordFrequency[word];
+                topWords.push({ word: i, frequency: frequency });
+            }
             resolve({
                 wordFrequency: wordFrequency,
                 topWords: topWords,
