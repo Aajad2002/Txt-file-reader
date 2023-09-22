@@ -41,13 +41,16 @@ function analyzeText(filePath) {
             );
 
             // Get the top 5 most occurring words
-            const topWords = sortedWords.slice(0, 5).map((pair) => ({
-                pair: wordFrequency[pair],
-            }));;
+            const topWords = [];
+            for (let i = 0; i < 5 && i < sortedWords.length; i++) {
+                const word = sortedWords[i];
+                const frequency = wordFrequency[word];
+                topWords.push({ word: word, frequency: frequency });
+            }
 
             //Top 5 mostly co-occurred words ( adjacent words in pairs )
 
-            const coOccurrences = [];
+            const coOccurrences = {};
             for (let i = 0; i < words.length - 1; i++) {
                 const word1 = words[i];
                 const word2 = words[i + 1];
@@ -64,9 +67,13 @@ function analyzeText(filePath) {
                 (a, b) => wordFrequency[b] - wordFrequency[a]
             );
             // Get the top 5 most co-occurred word pairs with their frequencies
-            const topCoOccurrences = sortedCoOccurrences.slice(0, 5).map((pair) => ({
-                pair: coOccurrences[pair],
-            }));
+            const topCoOccurrences =[]
+           
+            for (let i = 0; i < 5 && i < sortedCoOccurrences.length; i++) {
+                const word = sortedCoOccurrences[i];
+                const frequency = coOccurrences[word];
+                topCoOccurrences.push({ word: word, frequency: frequency });
+            }
             resolve({
                 wordFrequency: wordFrequency,
                 topWords: topWords,
