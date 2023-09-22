@@ -78,7 +78,7 @@ function analyzeText(filePath) {
             for (let i in wordFrequency) {
                 
                 const frequency = wordFrequency[word];
-                topWords.push({ word: i, frequency: frequency });
+                word.push({ word: i, frequency: frequency });
             }
             resolve({
                 word,
