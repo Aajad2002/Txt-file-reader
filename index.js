@@ -81,7 +81,7 @@ function analyzeText(filePath) {
                 topWords.push({ word: i, frequency: frequency });
             }
             resolve({
-                wordFrequency: wordFrequency,
+                word,
                 topWords: topWords,
                 topCoOccurrences,
                 data
